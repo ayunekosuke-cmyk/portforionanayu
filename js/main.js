@@ -1,281 +1,173 @@
-!function(a){"function"==typeof define&&define.amd?define(["jquery"],a):"object"==typeof exports?module.exports=a(require("jquery")):a(jQuery)}(function(a){function i(){var b,c,d={height:f.innerHeight,width:f.innerWidth};return d.height||(b=e.compatMode,(b||!a.support.boxModel)&&(c="CSS1Compat"===b?g:e.body,d={height:c.clientHeight,width:c.clientWidth})),d}function j(){return{top:f.pageYOffset||g.scrollTop||e.body.scrollTop,left:f.pageXOffset||g.scrollLeft||e.body.scrollLeft}}function k(){if(b.length){var e=0,f=a.map(b,function(a){var b=a.data.selector,c=a.$element;return b?c.find(b):c});for(c=c||i(),d=d||j();e<b.length;e++)if(a.contains(g,f[e][0])){var h=a(f[e]),k={height:h[0].offsetHeight,width:h[0].offsetWidth},l=h.offset(),m=h.data("inview");if(!d||!c)return;l.top+k.height>d.top&&l.top<d.top+c.height&&l.left+k.width>d.left&&l.left<d.left+c.width?m||h.data("inview",!0).trigger("inview",[!0]):m&&h.data("inview",!1).trigger("inview",[!1])}}}var c,d,h,b=[],e=document,f=window,g=e.documentElement;a.event.special.inview={add:function(c){b.push({data:c,$element:a(this),element:this}),!h&&b.length&&(h=setInterval(k,250))},remove:function(a){for(var c=0;c<b.length;c++){var d=b[c];if(d.element===this&&d.data.guid===a.guid){b.splice(c,1);break}}b.length||(clearInterval(h),h=null)}},a(f).on("scroll resize scrollstop",function(){c=d=null}),!g.addEventListener&&g.attachEvent&&g.attachEvent("onfocusin",function(){d=null})});
+
+
+
+
+
+
+// メインビジュアルの拡大
+
+$(window).scroll(function() {
+  var scroll = $(window).scrollTop();//スクロール値を定義
+//header-imgの背景
+if (window.matchMedia( "(min-width: 900px)" ).matches) {
+$('.mainvisual-img').css({
+transform: 'scale('+(100 + scroll/10)/100+')',//スクロール値を代入してscale1から拡大.scroll/10の値を小さくすると拡大値が大きくなる
+top: -(scroll/50)  + "%",//スクロール値を代入してtopの位置をマイナスにずらす
+  });
+}
+});
+
+// レスポンシブ　メインビジュアルの縮小
+$(window).scroll(function() {
+  var scroll = $(window).scrollTop();//スクロール値を定義
+//header-imgの背景
+if (window.matchMedia( "(max-width: 900px)" ).matches) {
+$('.mainvisual-img').css({
+transform: 'scalex('+(100 - scroll/10)/100+')',//スクロール値を代入してscale1から縮小.scroll/10の値を小さくすると拡大値が小さくなる
+top: +(scroll/50)  + "%",//スクロール値を代入してtopの位置をマイナスにずらす
+  });
+}
+});
+
+
+
+// 中央ロゴ
+
+$(function(){
+  const hero = $('.hero-logo');
+
+  // 最初にふわっと出す
+  setTimeout(() => {
+    hero.addClass('show');
+  }, 100);
+});
+
+$(function(){
+  const hero = $('.hero-logo');
+  const fadeEnd = 300;
+
+  $(window).on('scroll', function(){
+    const scroll = $(window).scrollTop();
+
+    let progress = scroll / fadeEnd;
+    if(progress > 1) progress = 1;
+
+    // ゆっくり変化
+    const scale = 1.5 - (0.4 * progress);
+    const translateY = -50 - (40 * progress);
+    const opacity = 1 - progress;
+
+    hero.css({
+      transform: `translate(-50%, ${translateY}%) scale(${scale})`,
+      opacity: opacity
+    });
+  });
+});
+
+
+
+
+$(function(){
+  const hamburger = $('.hamburger');
+  const logo = $('.logo');
+
+  let pastPos = 0;
+  const start = 300;
+
+  $(window).on('scroll', function(){
+    const scroll = $(window).scrollTop();
+
+    // ▼ ハンバーガー制御
+if(scroll > start){
+  hamburger.stop(true, true).fadeIn(300);
+} else {
+  hamburger.stop(true, true).fadeOut(300);
+}
+    // ▼ ロゴ制御（これを追加）
+    if(scroll > start){
+      logo.addClass('show');
+    } else {
+      logo.removeClass('show');
+    }
+
+    pastPos = scroll;
+  });
+});
+
+
+function closeMenu(){
+  $('.hamburger-list').removeClass('hamburger-list-show');
+  $('.hamburger').removeClass('active');
+}
 
 
 // ハンバーガーボタン
-
-
-
 $(function() {
-  $('.button').click(function() {
+  $('.hamburger').click(function() {
     $(this).toggleClass('active');
-    $('.s-body-shade').fadeToggle(100);
-    $('.s-nav-wrapper').toggleClass('s-header-b-margin');
+    $('.hamburger-list').toggleClass('hamburger-list-show');
   });
 });
-
-
-
 $(function() {
-  $('.s-header-nav').click(function() {
-    $('.s-body-shade').fadeToggle(100);
-    $('.s-nav-wrapper').removeClass('s-header-b-margin');
-    $('.button').removeClass('active');
+  $('.hamburger-list').click(function() {
+    $('.hamburger').removeClass('active');
+    $('.hamburger-list').removeClass('hamburger-list-show');
   });
 });
 
 
 
 
+        
 
-// アイテム上昇
-// インフォーメーションアイテム上昇
-$(function() {
-  $('#Information-wrapper').on('inview', function(event, isInView) {
-    if (isInView) {
-      $('#Information-wrapper div').addClass('item-up');
-    } 
-  });
-});
+$(function(){
+  const sidebutton = $('.side');
+  const gallery = $('#gallery');
 
+  const offset = 400; // ← この数値で調整
 
-$(function() {
-  $('#Information-wrapper').on('inview', function(event, isInView) {
-    if (isInView) {
-      $('.pinc').addClass('item-up');
-    } 
-  });
-    });
+  $(window).on('scroll', function(){
+    const scroll = $(window).scrollTop();
 
-$(function() {
-  $('#Information-wrapper').on('inview', function(event, isInView) {
-    if (isInView) {
-      $('#Information-wrapper h2').addClass('item-up');
-    } 
-  });
-    });
+    const galleryTop = gallery.offset().top - offset;
+    const galleryBottom = gallery.offset().top + gallery.outerHeight() - offset;
 
-// アバウト＿＿上昇
-$(function() {
-  $('#About-wrapper').on('inview', function(event, isInView) {
-    if (isInView) {
-      $('#About-wrapper h2').addClass('item-up');
-    } 
-  });
-});
-// ビジネス＿＿上昇
-$(function() {
-  $('#Business-wrapper').on('inview', function(event, isInView) {
-    if (isInView) {
-      $('#Business-wrapper div').addClass('item-up');
-    } 
-  });
-});
-// カンパニー＿＿上昇
-$(function() {
-  $('#Company-wrapper-top').on('inview', function(event, isInView) {
-    if (isInView) {
-      $('#Company-wrapper-top div').addClass('item-up');
-    } 
-  });
-});
-// リクルート＿＿上昇
-$(function() {
-  $('#Recruit-top-wrapper').on('inview', function(event, isInView) {
-    if (isInView) {
-      $('#Recruit-top-wrapper div').addClass('item-up');
-    } 
-  });
-});
-
-
-// セクションタイトルのテーマはじけて広がる
-$(function() {
-  $('#Information-wrapper').on('inview', function(event, isInView) {
-    if (isInView) {
-      $('#Information-wrapper .h2-span').addClass('h2-min-anime');
-    } 
-  });
-    });
-
-
-  $(function() {
-    $('#About-wrapper').on('inview', function(event, isInView) {
-      if (isInView) {
-        $('#About-wrapper .h2-span').addClass('h2-min-anime');
-      } 
-    });
-      });
-
-$(function() {
-  $('#Business-wrapper').on('inview', function(event, isInView) {
-    if (isInView) {
-      $('#Business-wrapper .h2-span').addClass('h2-min-anime');
-    } 
-  });
-    });
-    
-$(function() {
-    $('#Company-wrapper-top').on('inview', function(event, isInView) {
-      if (isInView) {
-        $('#Company-wrapper-top .h2-span').addClass('h2-min-anime');
-      } 
-    });
-      });
-
-$(function() {
-  $('#Recruit-top-wrapper').on('inview', function(event, isInView) {
-    if (isInView) {
-      $('#Recruit-top-wrapper .h2-span').addClass('h2-min-anime');
-
-    } 
-  });
-    });
-
-
-
-$(function() {
-$('.right').on('inview', function(event, isInView) {
-    if (isInView) {
-    $('.right').addClass('right-in');
-    } 
-});
-    });
-    
-      
-
-$(function() {
-    $('.v-box').on('inview', function(event, isInView) {
-      if (isInView) {
-        $(this).addClass('voice-in');
-      } 
-    });
-      });
-
-      // ビジネスの背景
-
-
-      $(function() {
-        $('#Business-wrapper').on('inview', function(event, isInView) {
-          if (isInView) {
-            $('.business-back').addClass('business-back-anime');
-          } 
-        });
-          });
-          // リクルートの背景
-
-
-$(function() {
-  $('#Recruit-top-wrapper').on('inview', function(event, isInView) {
-    if (isInView) {
-      $('.recruite-top-back').addClass('reccruite-back-anime');
-    } 
-  });
-    });
-
-
-// 上に戻るボタン
-    
-$(function() {
-  var topBtn = $('.back-top');    
-  topBtn.hide();
-  //スクロールが100に達したらボタン表示
-  $(window).scroll(function () {
-  if ($(this).scrollTop() > 700) {
-  //ボタンの表示方法
-  topBtn.fadeIn();
-  } else {
-  //ボタンの非表示方法
-  topBtn.fadeOut();
-  }
-  });
-  
-  //スクロールしてトップ
-  topBtn.click(function () {
-  $('body,  html').animate({
-  scrollTop: 0},   500);
-  return false;
-  });
-  });
-
-
-  // 個別ページｈ２のバックはじけて広がる
-// $(function() {
-//   $('#page-top').on('inview', function(event, isInView) {
-//     if (isInView) {
-//       $('#page-top .page-h2-span').addClass('page-h2-min-anime');
-//     } 
-//   });
-//     });
-
-//       // 個別ページｈ２の紐のアニメ
-// $(function() {
-//   $('#page-top').on('inview', function(event, isInView) {
-//     if (isInView) {
-//       $('#page-top .page-h2-green-nuime-span').addClass('page-h2-line-anime');
-//     } 
-//   });
-//     });
-
-
-  // フロントページの記事一覧タブリスト
-
-// $ (function(){
-//   $ (".tabcontent:not('.tabactive + .tabcontent')").hide();     
-//   $(".tabmenu").hover(function(){
-//           $ (this).addClass("hover")
-//   },
-//   function(){
-//           $(this).removeClass("hover")
-          
-//   });     
-//   $ (".tabmenu").click(function(){
-//          $(".tabmenu").addClass("info-nav-green");
-//           $(".tabmenu").removeClass("tabactive");
-//           $(".tabmenu").removeClass("info-nav");
-//           $ (this).addClass("tabactive");
-//           $ (this).addClass("info-nav");
-//           $(".tabcontent:not('.tabactive + .tabcontent')").fadeOut(); 
-//   $ (".tabactive + .tabcontent").fadeIn();
-//   });
-// });
-
-
-  $(function () {
-        // 初期化処理: すべてのタブコンテンツを非表示
-        $(".tabcontent").hide();
-    // アクティブなタブに対応するコンテンツを表示
-    $(".tabmenu + .tabactive").next(".tabcontent").show();
-
-  // タブのホバーエフェクト
-  $(".tabmenu").hover(
-    function () {
-      $(this).addClass("hover");
-    },
-    function () {
-      $(this).removeClass("hover");
+    if(scroll >= galleryTop && scroll <= galleryBottom){
+      sidebutton.addClass('side-button-show');
+    } else {
+      sidebutton.removeClass('side-button-show');
     }
-  );
-
-  // タブクリック時の処理
-    $(".tabmenu").click(function () {
-      // すべてのタブを非アクティブに
-      $(".tabmenu").removeClass("tabactive");
-  
-      // クリックされたタブをアクティブに
-      $(this).addClass("tabactive");
-  
-      // すべてのコンテンツを非表示に
-      $(".tabcontent").hide();
-  
-      // アクティブなタブに対応するコンテンツを表示
-      $(this).next(".tabcontent").fadeIn();
-    });
   });
-  
+});
 
+// スライダー
+$(function () {
+  $('#js-slider-1').slick({
+    arrows: false,
+    centerMode: true,
+    centerPadding: '100px',
+    slidesToShow: 3,
+    autoplay: true,
+    autoplaySpeed: 3000,
+    speed: 700,
+    pauseOnHover: true,
+    pauseOnFocus: true,
+    responsive: [
+      {
+        breakpoint: 768,
+        settings: {
+          centerMode: false,
+          centerPadding: '0px',
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          dots: true,
+          autoplay: false
+        }
+      }
+    ]
+  });
+});
 
-
-  
 
 
 

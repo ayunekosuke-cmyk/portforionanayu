@@ -1,440 +1,156 @@
+
 <!DOCTYPE html>
 <html lang="ja">
 <head>
   <meta charset="utf-8">
-  <title>フューチャーリンク</title>
-  <meta name="description" content="サイトの説明文が入ります">
+  <title>NAMAYU88 PORTFOLIO</title>
+  <meta name="description" content="テキストテキストテキストテキストテキストテキストテキストテキスト">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" href="img/common/favicon.ico">
-
-  <!-- グーグルフォント -->
+  <link rel="icon" href="img/favicon (2).ico">
+  <link rel="stylesheet" href="https://unpkg.com/ress/dist/ress.min.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=BIZ+UDPGothic:wght@400;700&family=Klee+One:wght@400;600&family=Zen+Kaku+Gothic+New:wght@400;500;700&family=Zen+Maru+Gothic:wght@400;500;700&family=Zeyada&display=swap" rel="stylesheet">
-
-  <!-- CSS -->
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick-theme.min.css">
+
+
+
 </head>
 
-
-<!-- 
-架空の福祉系企業サイトを想定し、デザインからコーディングまで一貫して制作したポートフォリオ作品です。
-柔らかく温かみのある印象を持たせるため、縫い目や布のモチーフを取り入れたデザインにしています。
-
-HTML / CSS / jQuery を用い、スクロールに応じたアニメーションや視線誘導を意識したレイアウトを実装しました。
-情報が整理されて伝わる構成と、動きによる印象づけを意識しています。
-
-※実在企業とは関係のない架空サイトです。 -->
-
-
 <body>
+  <!-- ここからヘッダー-->
+  <header>  
+    <!-- ハンバーガーリスト -->
+    <nav class="hamburger-list">
+      <ul>
+        <li><a href="index.html">TOP</a></li>
+        <li><a href="#information">INFORMATION</a></li>
+        <li><a href="#gallery">webdesighn</a></li>
+        <li><a href="#handmade">handmade</a></li>
+        <li><a href="#gyoumu">automation</a></li>
+      </ul>
+    </nav>
 
-<!-- ここからヘッダー-->
-<header id="header"> 
-
-  <!-- スマホ用メニュー -->
-  <div class="s-nav-wrapper">
-    <div class="s-body-shade"></div>
-
+<div class="hero-logo"><br>
+ WEB<br>HANDMADE<br>AUTOMATION</div>
+<!-- ヘッダーロゴ（左上用） -->
+<div class="logo"><a href="index.html">TOP</a></div>
     <!-- ハンバーガーボタン -->
-    <div class="button">
-      <button>
+    <div class="hamburger">
+      <button class="top">
         <span></span>
         <span></span>
-        <p class="menu-button">menu</p>
-        <p class="close-button">close</p>
+        <span></span>
       </button>
     </div>
-
-    <!-- スマホナビ -->
-    <div class="s-header-nav">
-      <ul class="nav-s">
-        <li><a href="#About-wrapper">フューチャーリンクとは</a></li>
-        <li><a href="#Information-wrapper">お知らせ</a></li>
-        <li><a href="#Business-wrapper">事業内容</a></li>
-        <li><a href="#Company-wrapper-top">会社情報</a></li>
-        <li><a href="#Recruit-top-wrapper">採用情報</a></li>
-      </ul>
-      <a class="contact-top-s" href="javascript:void(0);">お問い合わせ</a>
-    </div>
-  </div>
-
-  <!-- ロゴ -->
-  <a class="header-logo" href="index.html">
-    <img src="img/futurelogo.png" alt="フューチャーリンク">
-    株式会社<br class="s-br">フューチャーリンク
-  </a>
-
-  <!-- PCナビ -->
-  <div class="p-nav">
-    <div class="h-right">
-      <nav class="header-nav">
-        <ul>
-          <li class="pin"><a href="#Information-wrapper">お知らせ</a></li>
-          <li class="pin"><a href="#About-wrapper">フューチャーリンクとは</a></li>
-          <li class="pin"><a href="#Business-wrapper">事業内容</a></li>
-          <li class="pin"><a href="#Company-wrapper-top">会社情報</a></li>
-          <li class="h-contact">
-            <a class="contact-top-button" href="#Contact-top-wrapper">
-              <span>お問い合わせ</span>
-            </a>
-          </li>
-        </ul>
-      </nav>
-    </div>
-  </div>
-
-</header>
-<main>
-
-<!-- メインビジュアル -->
-<section id="mainvisual-wrapper">
-  <div class="scroll-infinity">
-    <div class="scroll-infinity__wrap">
-
-      <ul class="scroll-infinity__list scroll-infinity__list--right">
-        <li class="scroll-infinity__item1"><img src="img/main-img-gorira.png" alt="クマノプリントイメージ"></li>
-        <li class="scroll-infinity__item2"><img src="img/main-img-pasokon.png" alt="パソコンイメージ"></li>
-        <li class="scroll-infinity__item3"><img src="img/main-img-bac.png" alt="カバンイメージ"></li>
-        <li class="scroll-infinity__item4"><img src="img/maing-img-door.png" alt="ドア"></li>
-      </ul>
-
-      <ul class="scroll-infinity__list scroll-infinity__list--left">
-        <li class="scroll-infinity__item1"><img src="img/main-img-gorira.png" alt="クマノプリントイメージ"></li>
-        <li class="scroll-infinity__item2"><img src="img/main-img-pasokon.png" alt="パソコンイメージ"></li>
-        <li class="scroll-infinity__item3"><img src="img/main-img-bac.png" alt="カバンイメージ"></li>
-        <li class="scroll-infinity__item4"><img src="img/maing-img-door.png" alt="ドア"></li>
-      </ul>
-
-    </div>
-  </div>
-
-  <div class="text-back">
-    <span class="te-ma-box"></span>
-    <span class="white-box"></span>
-    <span class="mainv-text">
-      ここからひとり<br>
-      ひとりの生き方の<br>
-      物語が始まります
-    </span>
-  </div>
-
-  <div class="mainvisual-under-hand">
-    <img src="img/under-nuime.png" alt="縫い目">
-  </div>
-</section>
-
-<!-- お知らせ-->
-
-
-
-<section id="Information-wrapper">
-  <div class="h2-info-base">
-    <span class="h2-span"></span>
-    <h2>
-      お知らせ
-      <span class="zeyada-regular">NEWS</span>
-    </h2>
-  </div>
-
-  <div class="news-top-wrapper">
-    <img class="pinc" src="img/pinc.png" alt="ピンクッション">
-
-    <div class="info-top-left">
-      <div class="info-text">
-        <span>
-          当社の事業活動や新たな取り組みに関する最新情報をお届けします。
-          運営状況やサービスの向上に向けた取り組みなど、最新ニュースを随時ご案内してまいります。
-        </span>
-      </div>
-    </div>
-
-    <div class="info-top-right">
-      <ul class="news-tablist">
-        <li>
-          <a href="javascript:void(0);">
-            <span class="cat-li">お知らせ</span>
-            <span class="cat-time">2026/04/01</span>
-            <span class="cat-title">作例サイトを立ち上げました</span>
-          </a>
-        </li>
-
-        <li>
-          <a href="javascript:void(0);">
-            <span class="cat-li">更新情報</span>
-            <span class="cat-time">2026/03/20</span>
-            <span class="cat-title">お客様にご連絡です</span>
-          </a>
-        </li>
-
-        <li>
-          <a href="javascript:void(0);">
-            <span class="cat-li">お知らせ</span>
-            <span class="cat-time">2026/03/10</span>
-            <span class="cat-title">○月○日のイベントにて</span>
-          </a>
-        </li>
-      </ul>
-    </div>
-  </div>
-</section>
-
-
-
-
-
-<div class="hand"><img src="img/herat-hand.png" alt="包み込む手"></div>
-
-<!-- ここからアバウト -->
-
-
-<section id="About-wrapper">
-
-  <div class="h2-base">
-    <span class="h2-span"></span>
-    <h2>
-      フューチャーリンクとは
-      <span class="zeyada-regular about-h2-ing">about us</span>
-    </h2>
-  </div>
-
-  
-
-  <div class="about-top-inner">
-    <div class="about-innner-right item-up-base">
-      <div class="about-innner-right-innner">
-        <h4 class="item-up-base">こころに届く商品をここから発信します</h4>
-        <span class="item-up-base">
-          私たちは、ぬくもりや喜びを大切にし、人と人を繋ぐ商品を提供しています。<br>
-          商品を通じて、日常に小さな幸せや感動を届けることが私たちの使命です。
-          一つひとつの商品に込められた想いが、皆さまの人生を豊かにし、心に響く瞬間を創り出すことを目指しています。
-        </span>
-      </div>
-
-      <a class="readmore-b" href="index.html">
-           Coming Soon
-      </a>
-    </div>
-
-    <div class="about-innner-left item-up-base"></div>
-  </div>
-</section>
-
-<div class="hand"><img src="img/herat-hand.png" alt="包み込む手"></div>
-
-
-<section id="Business-wrapper">
-  <span class="business-back"></span>
-
-  <div class="h2-base">
-    <span class="h2-span"></span>
-    <h2>
-      事業内容
-      <span class="zeyada-regular">works</span>
-    </h2>
-  </div>
-
-  <div class="Business-wrapper-inner">
-    <h4>
-      福祉サービスを通じて社会に貢献し、<br>
-      オリジナル製品やSDGsの取り組みを心掛けた事業を展開しています。
-    </h4>
-
-    <div class="Business-grid">
-
-      <a class="cocokara" href="javascript:void(0);" >
-        <span class="busi-g-top">就労継続支援A型事業</span>
-        <div class="Business-grid-text">
-          <span class="business-name">ミラカラ</span>
-          <span>デザインやパソコン作業などで新たなスタートを応援します。</span>
+  </header>
+  <!-- ここからコンテナ（フッターまで） -->
+  <div class="container">
+    <!-- ここからメイン（フッターより上） -->
+    <main>
+  <!-- ここからメインビジュアル -->
+      <div id="mainvisual">
+        <div class="mainvisual-img">
+        <img src="img/mainvisual1.jpg" alt="ハンバーガーのイラスト">
+        <img src="img/mainvisual2.jpg" alt="ドアのイラスト">
+        <img src="img/mainvisual3.jpg" alt="猫のイラスト">
         </div>
-      </a>
-
-      <a class="creef" href="javascript:void(0);" >
-        <span class="busi-g-top">就労継続支援A型事業</span>
-        <div class="Business-grid-text">
-          <span class="business-name">チアー！</span>
-          <span>バッグ制作やリサイクルなど社会をつなぎます。</span>
-        </div>
-      </a>
-
-      <a class="gorilaprint" href="javascript:void(0);" >
-        <span class="busi-g-top">オリジナルプリントTシャツ</span>
-        <div class="Business-grid-text">
-          <span class="business-name">クマノプリント</span>
-          <span>オリジナルデザインのTシャツを作れるオンラインショップです。</span>
-        </div>
-      </a>
-
-      <a class="nagatari" href="javascript:void(0);" >
-        <span class="busi-g-top">リユース事業</span>
-        <div class="Business-grid-text">
-          <span class="business-name">川田リサイクルセンター</span>
-          <span>リサイクルやリペアなど新たな命を吹き込みます。</span>
-        </div>
-      </a>
-
-    </div>
-  </div>
-</section>
-
-<div class="hand"><img src="img/herat-hand.png" alt="包み込む手"></div>
-<!-- Company -->
-<section id="Company-wrapper-top">
-
-  <div class="h2-base">
-    <span class="h2-span"></span>
-    <h2>会社情報<span class="zeyada-regular">Company</span></h2>
-  </div>
-
-  <div class="company-title">
-    <h4>
-      “よろこび”と”やさしさ”<br>
-      を社会につなぐことを目指す企業です
-    </h4>
-  </div>
-
-  <div class="Company-wrapper-top-innner">
-    <div class="company-box">
-
-      <div class="Company-left">
-        <ul class="company-left-ul">
-          <li><a class="left-p" href="#About-wrapper">ご挨拶</a></li>
-          <li><a href="#Business-wrapper;">会社概要</a></li>
-          <li><a class="left-p" href="javascript:void(0);">準備中</a></li>
-          <li><a href="#Contact-top-wrapper">コンタクト</a></li>
-        </ul>
       </div>
+      <h1>
+  NAMAYU88 PORTFOLIO
+</h1>
+           <!-- ここからインフォーメーション -->
 
-      <div class="Company-img">
-        <img class="mugen" src="img/company-mugen.png" alt="無限マーク">
-      </div>
+        <section id="information">
+<div class="inner">
+    <h2>できること</h2>
+    <p class="info-lead">
+      <span>HTML / CSSコーディング</span>
+      <span>業務効率化ツール</span>
+      <span>HANDMADE</span>
+    </p>
 
-    </div>
-  </div>
+    <p>
+      HTML/CSSコーディング、WordPress編集、VBA・Pythonによる業務効率化ツール制作などを行っています。
+      デザインだけでなく、実際に動く形に仕上げることを意識して制作しています。
+    </p>
 
-</section>
-
-<div class="hand">
-  <img src="img/herat-hand.png" alt="包み込む手">
 </div>
-
-<!-- Recruit -->
-<section id="Recruit-top-wrapper">
-
-  <span class="recruite-top-back"></span>
-
-  <div class="h2-base">
-    <span class="h2-span"></span>
-
-    <h2>採用情報<span class="zeyada-regular">Recruit</span></h2>
-
-    <h4 class="recuruite-top-h4">
-      私たちと共に<br>
-      豊かな未来を創りませんか？
-    </h4>
-
-    <div class="reccruite-top-innner">
-      <h4 class="s-recuruite-top-h4">
-        私たちと共に<br>
-        豊かな未来を創りませんか？
-      </h4>
-
-      <a class="readmore-b" href="javascript:void(0);">
-        Coming Soon
-      </a>
-    </div>
-
-  </div>
-
 </section>
+      <!-- </section> -->
 
-
-<!-- ここからコンタクトー -->
-<section id="Contact-top-wrapper">
-  <div class="contact-top-inner">
-    <div class="contact-text">
-      <h2>お問い合わせ</h2>
-      <span>フューチャーリンクへのお問い合わせはこちらのフォームをお使い下さい</span>
-      <a class="readmore-b" href="javascript:void(0);">
-        Coming Soon
-      </a>
+                 <!-- サイドボタン -->
+<a class="side" href="pages/works.html">
+  <span class="side-text">
+    VIEW WORKS<br>作品を見る
+  </span>
+</a>
+      <!-- ここからギャラリー -->
+  <section id="gallery">
+    <div class="inner">
+      <h2>Web制作</h2>
+      <a href="pages/works.html">
+  <span class="button-text"><span class="works">works</span>詳細を見る</span>
+</a>
+</a>
     </div>
+    <ul class="slider-1" id="js-slider-1">
+      <li><img src="img/sitee1.png" alt="SITE"></li>
+      <li><img src="img/sitee2.png" alt="#"></li>
+      <li><img src="img/sitee3.png" alt="#"></li>
+      <li><img src="img/sitee1.png" alt="SITE"></li>
+      <li><img src="img/sitee2.png" alt="#"></li>
+      <li><img src="img/sitee3.png" alt="#"></li>
+    </ul>
+  </section>
+      <!-- ここからハンドメイド -->
+      <section id="handmade">
+       <div class="inner">
+          <h2>手芸作品</h2>
+            <p><span class="bold-28">羊毛フェルト作品</span></p>
+            <p>羊毛フェルトで作った作品などを展示しています</p>
+            <a href="pages/handmade.html">詳しく見る</a>
+        </div>
+       
+      </section>
+      <!-- ここから業務効率化アプリ -->
+      <section id="gyoumu">
+        <div class="gyoumucontainer">
+          <div class="inner">
+            <h2>業務効率化</h2>
+          </div>
+          <a href="pages/automation.html">業務効率化ツールの紹介</a>
+        </div>
 
-    <a class="contact-a" href="javascript:void(0);">
-      <h4 class="contact-h4">
-        <span class="opacity-contact">Contact<br>Us</span>
-      </h4>
-    </a>
-  </div>
-</section>
+      </section>
 
-<button class="back-top">
-  <span></span>
-</button>
+  <!-- ここからフッター -->
+    </main>
+    <footer>
+      <div class="inner">
+              <ul>
+         <li> <a href="https://crowdworks.jp/" target="_blank" rel="noopener noreferrer">クラウドワークスはこちら</a></li>
+        
 
-</main>
 
-<!-- ここからフッター -->
-<footer>
-  <div class="footer-left-text">
-    <div class="footer-logo">
-      <img src="img/futurlomaru.png" alt="フューチャーリンク">
-      <p>株式会社<br>フューチャーリンク</p>
-    </div>
-
-    <span>
-      〒000-0000<br>
-      凸凹市１２３町５－５－５<br>
-      未来ビル<br>
-    </span>
-
-    <span>
-      TEL:00-0000-0000<br>
-      FAX:00-0000-0000
-    </span>
-  </div>
-
-  <div class="footer-list-right">
-    <div class="footer-list">
-      <h5>■サイトマップ</h5>
-      <div class="footer-list-ul">
-        <ul>
-          <li class="orange"><a href="index.html">トップページ</a></li>
-          <li class="orange"><a href="#Information-wrapper">お知らせ一覧</a></li>
-          <li class="orange"><a href="#Company-wrapper-top">会社概要</a></li>
-        </ul>
-        <ul>
-          <li class="orange"><a href="#Recruit-top-wrapper">採用情報</a></li>
-          <li class="orange"><a href="#Contact-top-wrapper">お問い合わせ</a></li>
-        </ul>
+        <li> NAMAYU88 PORTFOLIO</li>
+      </ul>
       </div>
-    </div>
-
-    <div class="footer-list display-none">
-      <h5>■事業内容</h5>
-      <div class="footer-list-ul">
-        <ul>
-          <li class="orange-r"><a href="javascript:void(0);">チアー！｜就労継続支援Ａ型</a></li>
-          <li class="orange-r"><a href="javascript:void(0);">ミラカラ｜就労継続支援Ａ型</a></li>
-          <li class="orange-r"><a href="javascript:void(0);">革工房brawn｜レザー製品販売</a></li>
-        </ul>
-        <ul>
-          <li class="orange-r"><a href="javascript:void(0);">クマノプリント｜オリジナルTシャツ</a></li>
-          <li class="orange-r"><a href="javascript:void(0);">川田リサイクルセンター｜リユース事業</a></li>
-        </ul>
-      </div>
-    </div>
+    </footer>
   </div>
 
-  <div class="footer-list-bottom">
-    ©株式会社フューチャーリンク. All rights reserved.
-  </div>
-</footer>
+  <!-- jQuery -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
-<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-<script src="js/inview.js"></script>
+<!-- プラグイン -->
+<script src="js/jquery.inview.min.js"></script>
+
+<!-- slick -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js"></script>
+
+<!-- 自分 -->
 <script src="js/main.js"></script>
-
 </body>
 </html>
